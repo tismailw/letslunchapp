@@ -1,0 +1,70 @@
+#:import utils kivy.utils
+
+<HomeScreen>:
+    FloatLayout: # specifying sizes so needs float
+        canvas:
+            Color: 
+                rgb: utils.get_color_from_hex("#39B3F2")
+            Rectangle:
+                size: self.size
+                pos: self.pos
+#---   
+        GridLayout:
+            rows: 1
+            pos_hint: {"top": 1, "left": 1}
+            size_hint: 1, .1
+            Image:
+                source: "icons/burger8_1.png"
+            Image:
+                source: "icons/pizza8.png"
+#---       
+        GridLayout:
+            # Put two weather icons and avatar icon
+            rows: 1
+            pos_hint: {"top": .9, "left": 1}
+            size_hint: 1, .2
+            # put two weather icons and avatar icon
+            Image:
+                source: "icons/burger8_1.png"
+            Image:
+                source: "icons/pizza8.png"
+            Image:
+                source: "icons/burger8_2.png"
+
+
+        Label: 
+            # Streak label
+            pos_hint: {"top": .7, "left": 1}
+            size_hint: 1, .1
+            text: "Let's Get Lunch Together!"
+            id: streak_label
+        GridLayout:
+            # Banner grid
+            cols: 1
+            pos_hint: {"top":.6, "left": 1}
+            size_hint: 1, .4
+        GridLayout:
+            # Add 3 Menu buttons here
+            rows: 1
+            pos_hint: {"top": .2, "left": 1}
+            size_hint: 1, .2
+            ImageButton:
+                source: "icons/chat8.png"
+                on_release:
+                    print("RELEASED CHAT BUTTON")
+                    app.change_screen("signup_screen")
+
+            ImageButton:
+                source: "icons/burger8_1.png"
+                on_press:
+                    self.source = "icons/burger8_2.png"
+                on_release:
+                    self.source = "icons/burger8_1.png"
+                    print("RELEASED BURGER BUTTON")
+                    app.change_screen("home_screen")
+
+            ImageButton:
+                source: "icons/settings8.png"
+                on_release:
+                    print("RELEASED SETTINGS BUTTON")
+                    app.change_screen("settings_screen")

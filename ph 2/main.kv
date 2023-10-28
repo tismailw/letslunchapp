@@ -1,0 +1,17 @@
+#:include kv/homescreen.kv 
+#:include kv/settingsscreen.kv
+#:include kv/signupscreen.kv
+
+GridLayout: # root widget
+    cols: 1
+    ScreenManager:
+        id: screen_manager
+        HomeScreen:
+            name: "home_screen"
+            id: home_screen
+        SignupScreen:
+            name: "signup_screen"
+            id: signup_screen
+        SettingsScreen:
+            name: "settings_screen"
+            id: settings_screen
